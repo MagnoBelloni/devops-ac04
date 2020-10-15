@@ -8,16 +8,20 @@ app = Flask(__name__)
 def fibonacci():
     proximo = 1
     anterior = 0
-    limite = 50
+    limite = 100
     found = 0
-    resposta = "0,"
+    resposta = "<h1>Fibonacci</h1>0,"
+    pular_linha = 10
     while found < limite:
         tmp = proximo
         proximo = proximo + anterior
         anterior = tmp
         found += 1
         resposta += str(proximo) + ","
-
+        pular_linha -= 1
+        if(pular_linha == 0):
+            pular_linha = 10
+            resposta += "<br>"
     return resposta
 
 
